@@ -1,4 +1,4 @@
-FROM httpd:2.4-alpine
-COPY ./public_html/ /usr/local/apache2/htdocs/
-EXPOSE 80
+FROM nginx:alpine-slim
+COPY ./public_html/ /usr/share/nginx/html/
+
 
