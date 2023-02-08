@@ -11,7 +11,7 @@ pipeline {
              sh 'docker-compose push'
                 }
         }
-    }
+    
         stage('Connection') {
          step {withCredentials([sshUserPrivateKey(credentialsId: 'ssh-amazon', keyFileVariable: 'CREDENTIALS')]) {
                  sh ''' ssh -i $CREDENTIALS ec2-user@34.244.150.14
@@ -19,6 +19,7 @@ pipeline {
                  sh 'docker run --rm -p 80:80 ghcr.io/cmg1911/hello-2048/hello-2048:v1'
               }
          }
-       } 
+        }    
+    } 
 }
 
