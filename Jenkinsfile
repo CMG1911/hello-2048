@@ -12,7 +12,6 @@ pipeline {
                 }
         }
     }
-    node{
         stage('Connection') {
          step {withCredentials([sshUserPrivateKey(credentialsId: 'ssh-amazon', keyFileVariable: 'CREDENTIALS')]) {
                  sh ''' ssh -i $CREDENTIALS ec2-user@34.244.150.14
@@ -21,5 +20,5 @@ pipeline {
               }
          }
        } 
-    }
 }
+
