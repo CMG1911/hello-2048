@@ -3,15 +3,7 @@ pipeline {
     environment{
       CREDENTIALS = 'AWS_SSH_KEY' }
     options{timestamps()}
-    stages {
-        stage('Image builder') {
-         steps {
-             sh 'docker build -t ghcr.io/cmg1911/hello-2048/hello-2048:v1 .'
-             sh 'docker-compose build'
-             sh 'docker-compose push'
-                }
-        }
-    
+    stages {    
         stage('Connection') {
          steps {sshagent(['ssh-amazon']) {
                  sh ''' ssh -i $CREDENTIALS ec2-user@34.244.150.14
