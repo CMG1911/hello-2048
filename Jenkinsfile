@@ -11,7 +11,7 @@ pipeline {
             sshagent(['github-ssh']) {
                    sh "git push --tags"
                   }
-                sh "docker tag ghcr.io/cmg1911/hello-2048/hello-2048:v1 ghcr.io/cmg1911/hello-2048:1.0.${BUILD_NUMBER}"
+                sh "docker tag ghcr.io/cmg1911/hello-2048 ghcr.io/cmg1911/hello-2048:1.0.${BUILD_NUMBER}"
                 sh 'docker-compose push'
                 sh "docker push ghcr.io/cmg1911/hello-2048:1.0.${BUILD_NUMBER}"
                 }
