@@ -2,6 +2,6 @@ version: "3"
 services:
    apache:
      build: .
-     image: ghcr.io/cmg1911/hello-2048/hello-2048:v1
+     image: ghcr.io/cmg1911/hello-2048
      ports:
       - "80:80"
