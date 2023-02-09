@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     agent any
     options{timestamps()}
     stages {
@@ -18,7 +18,7 @@ ipeline {
                     ssh -o "StrictHostKeyChecking no" ec2-user@ec2-54-195-160-88.eu-west-1.compute.amazonaws.com
                     """
                  sh 'docker pull ghcr.io/cmg1911/hello-2048/hello-2048:v1 '
-                 sh 'docker run --rm -p 80:80 ghcr.io/cmg1911/hello-2048/hello-2048:v1' }
+                 sh 'docker run --rm -p 80:80 -d ghcr.io/cmg1911/hello-2048/hello-2048:v1' }
                 }
        }
     }
